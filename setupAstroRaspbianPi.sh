@@ -34,7 +34,7 @@ function display
 function checkForConnection
 {
 		testCommand=$(curl -Is $2 | head -n 1)
-		if [[ "${testCommand}" == *"200"* || "${testCommand}" == *"Moved"* ]]
+		if [[ "${testCommand}" == *"OK"* || "${testCommand}" == *"Moved"* ]]
   		then 
   			echo "$1 was found. The script can proceed."
   		else
@@ -56,16 +56,16 @@ then
 fi
 
 display "Testing connections to required web addresses for running the script.  If the pi cannot connect to the internet, you should correct this before running the script.  If a required resource is not available, you should find out if the resource has moved, or remove the requirement for this resource."
-checkForConnection ZRam-script "https://raw.githubusercontent.com/novaspirit/rpi_zram/master/zram.sh"
-checkForConnection INDI-Git-Repo "https://github.com/indilib/indi.git"
-checkForConnection INDI-3rdparty-Repo "https://github.com/indilib/indi-3rdparty.git"
-checkForConnection GSC-Source "http://cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2"
-checkForConnection StellarSolver-Repo "https://github.com/rlancaste/stellarsolver.git"
-checkForConnection KStars-Repo "https://github.com/KDE/kstars"
-checkForConnection PHD2-Repo "https://github.com/OpenPHDGuiding/phd2.git"
-checkForConnection WX-FormBuilder-Repo "https://github.com/wxFormBuilder/wxFormBuilder.git"
-checkForConnection PHD2-LogViewer-Repo "https://github.com/agalasso/phdlogview.git"
-checkForConnection INDIWebManagerApp-Repo "https://github.com/rlancaste/INDIWebManagerApp.git"
+# checkForConnection ZRam-script "https://raw.githubusercontent.com/novaspirit/rpi_zram/master/zram.sh"
+# checkForConnection INDI-Git-Repo "https://github.com/indilib/indi.git"
+# checkForConnection INDI-3rdparty-Repo "https://github.com/indilib/indi-3rdparty.git"
+# checkForConnection GSC-Source "http://cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2"
+# checkForConnection StellarSolver-Repo "https://github.com/rlancaste/stellarsolver.git"
+# checkForConnection KStars-Repo "https://github.com/KDE/kstars"
+# checkForConnection PHD2-Repo "https://github.com/OpenPHDGuiding/phd2.git"
+# checkForConnection WX-FormBuilder-Repo "https://github.com/wxFormBuilder/wxFormBuilder.git"
+# checkForConnection PHD2-LogViewer-Repo "https://github.com/agalasso/phdlogview.git"
+# checkForConnection INDIWebManagerApp-Repo "https://github.com/rlancaste/INDIWebManagerApp.git"
 
 export USERHOME=$(sudo -u $SUDO_USER -H bash -c 'echo $HOME')
 

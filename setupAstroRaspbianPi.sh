@@ -34,7 +34,7 @@ function display
 function checkForConnection
 {
 		testCommand=$(curl -Is $2 | head -n 1)
-		if [[ "${testCommand}" == *"OK"* || "${testCommand}" == *"Moved"* ]]
+		if [[ "${testCommand}" == *"200"* || "${testCommand}" == *"Moved"* ]]
   		then 
   			echo "$1 was found. The script can proceed."
   		else
